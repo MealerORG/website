@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-export default function Header() {
+export default function Header(props: any) {
     const [offcanvas, setOffcanvas] = useState(false);
     const router = useRouter();
 
@@ -16,7 +16,7 @@ export default function Header() {
     ];
 
     return <>
-        <Navbar variant="dark" expand="sm" className="p-3 sticky-top">
+        <Navbar variant="dark" expand="sm" className={`p-3 sticky-top ${props.className ?? ""}`}>
             <Navbar.Brand href="/" className="py-0 d-flex align-items-center">
                 <Image src="/img/logo.png" alt="Mealer Logo" width="36" height="36" />
                 <div className="fs-4 ms-2 mb-0">Mealer</div>

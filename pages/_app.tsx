@@ -1,10 +1,13 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { Inter } from "next/font/google";
 import Header from "../components/header";
 import Footer from "../components/footer";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/global.css";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export default function App({ Component, pageProps }: AppProps) {
     return <>
@@ -14,12 +17,12 @@ export default function App({ Component, pageProps }: AppProps) {
             <link rel="shortcut icon" href="/img/favicon.png" type="image/png" />
         </Head>
 
-        <Header />
+        <Header className={inter.className} />
 
-        <main>
+        <main className={inter.className}>
             <Component {...pageProps} />
         </main>
 
-        <Footer />
+        <Footer className={inter.className} />
     </>;
 }
