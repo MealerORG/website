@@ -1,0 +1,29 @@
+:root {
+    --dark-blue: #427ded;
+    --med-blue: #98caff;
+    --light-blue: #e5edfd;
+}
+
+html, body, #__next {
+    height: 100%;
+}
+
+#__next {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
+    padding: 1rem;
+}
+
+/* NAV BAR */
+
+nav {
+    background-color: var(--dark-blue);
+}
+
+.nav-link.active {
+    color: white;
+}
