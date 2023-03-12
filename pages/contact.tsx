@@ -2,6 +2,23 @@ import { useState } from "react";
 
 export default function Contact() {
     const [submitted, setSubmitted] = useState(false);
+
+    async function handleSubmit(e: any) {
+        e.preventDefault();
+
+        try {
+            await fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(new FormData(e.target) as any).toString()
+            });
+
+            setSubmitted(true);
+        } catch (err: any) {
+            alert(err.message);
+            console.error(err);
+        }
+    }
     
     return <>
         <h1>Contact Us</h1>
@@ -13,22 +30,9 @@ export default function Contact() {
         { submitted ?
             <p><strong>Your message was submitted!</strong></p>
         :
-            <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true" onSubmit={async (e: any) => {
-                e.preventDefault();
+            <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true" onSubmit={handleSubmit}>
+                <input type="hidden" name="form-name" value="contact" />
 
-                try {
-                    await fetch("/", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                        body: new URLSearchParams(new FormData(e.target) as any).toString()
-                    });
-
-                    setSubmitted(true);
-                } catch (err: any) {
-                    alert(err.message);
-                    console.error(err);
-                }
-            }}>
                 <div>
                     <label htmlFor="name" className="me-1">Your Name: </label>
                     <input id="name" name="name" type="text" required />
