@@ -14,7 +14,7 @@ export default function Contact() {
         { submitted != undefined ?
             <p><strong>Your message was submitted!</strong></p>
         :
-            <form name="contact" method="POST" action="/contact?submitted" data-netlify="true" data-netlify-recaptcha="true" data-netlify-honeypot="bot-field">
+            <form name="contact" method="POST" action="/contact?submitted" data-netlify="true" data-netlify-honeypot="bot-field">
                 <input type="hidden" name="form-name" value="contact" />
 
                 <div>
@@ -31,8 +31,6 @@ export default function Contact() {
                     <label htmlFor="message" className="d-block">Your Message: </label>
                     <textarea className="w-100 mt-1" rows={10} name="message" required />
                 </div>
-
-                <div className="my-3" data-netlify-recaptcha="true" />
 
                 <button className="btn btn-primary" type="submit">Send</button>
             </form>
