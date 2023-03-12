@@ -6,13 +6,18 @@ export default function Contact() {
     async function submitForm(e: any) {
         e.preventDefault();
 
-        await fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(new FormData(e.target) as any).toString()
-        });
-
-        setSubmitted(true);
+        try {
+            await fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(new FormData(e.target) as any).toString()
+            });
+    
+            setSubmitted(true);
+        } catch (err: any) {
+            alert(err.message);
+            console.log(err);
+        }
     }
 
     return <>
