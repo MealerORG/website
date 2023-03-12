@@ -13,7 +13,7 @@ export default function Contact() {
         { submitted ?
             <p><strong>Your message was submitted!</strong></p>
         :
-            <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true" onSubmit={async (e: any) => {
+            <form name="contact" data-netlify="true" data-netlify-recaptcha="true" onSubmit={async (e: any) => {
                 e.preventDefault();
 
                 try {
@@ -29,6 +29,8 @@ export default function Contact() {
                     console.error(err);
                 }
             }}>
+                <input type="hidden" name="form-name" value="contact" />
+
                 <div>
                     <label htmlFor="name" className="me-1">Your Name: </label>
                     <input id="name" name="name" type="text" required />
