@@ -1,8 +1,19 @@
-import { useRouter } from "next/router";
+import { useState } from "react";
 
 export default function Contact() {
-    const router = useRouter();
-    const { submitted } = router.query;
+    const [submitted, setSubmitted] = useState(false);
+
+    async function submitForm(e: any) {
+        e.preventDefault();
+
+        await fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(new FormData(e.target) as any).toString()
+        });
+
+        setSubmitted(true);
+    }
 
     return <>
         <h1>Contact Us</h1>
@@ -11,24 +22,29 @@ export default function Contact() {
 
         <p>You can also fill out the form below:</p>
 
-        { submitted != undefined ?
+        { submitted ?
             <p><strong>Your message was submitted!</strong></p>
         :
-            <form name="contact" method="POST" action="/contact?submitted" data-netlify="true" data-netlify-honeypot="bot-field">
+            <form name="contact" method="POST" action="/" onSubmit={submitForm} data-netlify="true" data-netlify-honeypot="bot-field">
                 <input type="hidden" name="form-name" value="contact" />
 
+                <div hidden>
+                    <label htmlFor="bot-field">Don't fill this out if you're human: </label>
+                    <input id="bot-field" name="bot-field" type="text" />
+                </div>
+
                 <div>
-                    <label htmlFor="name" className="me-1">Your Name: </label>
+                    <label htmlFor="name" className="me-1">Name: </label>
                     <input id="name" name="name" type="text" required />
                 </div>
 
                 <div className="my-2">
-                    <label htmlFor="email" className="me-1">Your Email: </label>
+                    <label htmlFor="email" className="me-1">Email: </label>
                     <input id="email" name="email" type="email" required />
                 </div>
 
                 <div>
-                    <label htmlFor="message" className="d-block">Your Message: </label>
+                    <label htmlFor="message" className="d-block">Message: </label>
                     <textarea className="w-100 mt-1" rows={10} name="message" required />
                 </div>
 
