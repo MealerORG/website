@@ -20,7 +20,7 @@ export default function Contact() {
                     await fetch("/", {
                         method: "POST",
                         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                        body: new URLSearchParams(new FormData(e.target)).toString()
+                        body: new URLSearchParams(new FormData(e.target) as any).toString()
                     });
 
                     setSubmitted(true);
