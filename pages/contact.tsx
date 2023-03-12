@@ -1,25 +1,9 @@
-import { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function Contact() {
-    const [submitted, setSubmitted] = useState(false);
+    const router = useRouter();
+    const { submitted } = router.query;
 
-    async function handleSubmit(e: any) {
-        e.preventDefault();
-
-        try {
-            await fetch("/", {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams(new FormData(e.target) as any).toString()
-            });
-
-            setSubmitted(true);
-        } catch (err: any) {
-            alert(err.message);
-            console.error(err);
-        }
-    }
-    
     return <>
         <h1>Contact Us</h1>
 
@@ -27,10 +11,10 @@ export default function Contact() {
 
         <p>You can also fill out the form below:</p>
 
-        { submitted ?
+        { submitted != undefined ?
             <p><strong>Your message was submitted!</strong></p>
         :
-            <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true" onSubmit={handleSubmit}>
+            <form name="contact" method="POST" action="/contact?submitted" data-netlify="true" data-netlify-recaptcha="true" data-netlify-honeypot="bot-field">
                 <input type="hidden" name="form-name" value="contact" />
 
                 <div>
