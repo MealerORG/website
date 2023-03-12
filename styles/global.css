@@ -4,11 +4,12 @@
     --light-blue: #e5edfd;
 }
 
-html, body, #__next {
+html, body {
     height: 100%;
 }
 
 #__next {
+    min-height: 100%;
     display: flex;
     flex-direction: column;
 }
