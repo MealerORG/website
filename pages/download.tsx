@@ -16,8 +16,8 @@ export default function Download() {
                     <p style={{ fontSize: "1.125em" }}>Start meal planning, saving money, and helping the environment today!</p>
 
                     <div className="d-flex flex-wrap justify-content-center">
-                        {platforms.map((platform) =>
-                            <a href={platform.href} target="_blank" rel="noopener noreferrer" className="m-1">
+                        {platforms.map((platform, index) =>
+                            <a href={platform.href} target="_blank" rel="noopener noreferrer" className="m-1" key={index}>
                                 <Image src={platform.image} width={platform.width} height={platform.height} alt={platform.alt} />
                             </a>
                         )}
