@@ -3,6 +3,7 @@ import Head from "next/head";
 import { Inter } from "next/font/google";
 import Header from "../components/header";
 import Footer from "../components/footer";
+import "./about.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/global.css";
