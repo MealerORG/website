@@ -40,15 +40,15 @@ export default function Contact() {
                 </div>
 
                 <FloatingLabel controlId="name" label="Name">
-                    <Form.Control type="text" placeholder="Name" required />
+                    <Form.Control type="text" name="name" placeholder="Name" required />
                 </FloatingLabel>
 
                 <FloatingLabel controlId="email" label="Email" className="my-2">
-                    <Form.Control type="email" placeholder="Email" required />
+                    <Form.Control type="email" name="email" placeholder="Email" required />
                 </FloatingLabel>
 
                 <FloatingLabel controlId="message" label="Message" className="mt-1 mb-3">
-                    <Form.Control as="textarea" placeholder="Message" required style={{ height: "200px" }} />
+                    <Form.Control as="textarea" name="message" placeholder="Message" required style={{ height: "200px" }} />
                 </FloatingLabel>
 
                 <Button variant="primary" type="submit">Send</Button>
