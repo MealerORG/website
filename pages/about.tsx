@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Row, Col } from "react-bootstrap";
 
 export default function About() {
     return <>
@@ -16,24 +17,24 @@ export default function About() {
 
         <h2 className="mb-0">Business Plan</h2>
 
-        <div className="row">
-            <div className="col-md-6 mt-3">
+        <Row>
+            <Col md="6" className="mt-3">
                 <p>Take a look at our business plan:</p>
 
                 <div className="position-relative h-0 rounded overflow-hidden mb-3" style={{ aspectRatio: "8.5 / 11", willChange: "transform" }}>
                     <iframe loading="lazy" className="position-absolute w-100 h-100 top-0 bottom-0 left-0 right-0 border-0 p-0 m-0" title="Mealer Business Plan"
                         src="https://www.canva.com/design/DAE7EJTz0to/view?embed" allow="fullscreen" allowFullScreen />
                 </div>
-            </div>
+            </Col>
 
-            <div className="col-md-6 mt-3">
+            <Col md="6" className="mt-3">
                 <p>Watch a video of our business presentation:</p>
 
                 <div className="position-relative h-0 rounded overflow-hidden" style={{ aspectRatio: "16 / 9", willChange: "transform" }}>
                     <iframe loading="lazy" className="position-absolute w-100 h-100 top-0 bottom-0 left-0 right-0 border-0 p-0 m-0" title="Mealer Presentation Video"
                         src="https://www.youtube-nocookie.com/embed/f17d1EuJXes" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
                 </div>
-            </div>
-        </div>
+            </Col>
+        </Row>
     </>;
 }

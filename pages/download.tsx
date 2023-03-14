@@ -1,5 +1,6 @@
 import Image from "next/image";
 import AppImage from "../components/appImage";
+import { Row, Col } from "react-bootstrap";
 
 export default function Download() {
     const platforms = [
@@ -8,8 +9,8 @@ export default function Download() {
     ];
 
     return <>
-        <div className="row mx-0">
-            <div className="col-sm-6 col-md-8 col-xxl-9 mt-3 d-flex flex-column justify-content-center">
+        <Row className="mx-0">
+            <Col sm="6" md="8" xxl="9" className="mt-3 d-flex flex-column justify-content-center">
                 <div className="text-center">
                     <h1>Download the App</h1>
 
@@ -25,10 +26,11 @@ export default function Download() {
 
                     <div className="mt-3"><em>Desktop and web versions are coming soon.</em></div>
                 </div>
-            </div>
-            <div className="col-sm-6 col-md-4 col-xxl-3 mt-3">
+            </Col>
+
+            <Col sm="6" md="4" xxl="3" className="mt-3">
                 <AppImage app="login" />
-            </div>
-        </div>
+            </Col>
+        </Row>
     </>;
 }
