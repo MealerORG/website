@@ -17,10 +17,12 @@ export default function Header(props: any) {
 
     return <>
         <Navbar variant="dark" expand="sm" className={`p-3 sticky-top ${props.className ?? ""}`}>
-            <Navbar.Brand href="/" className="py-0 d-flex align-items-center">
-                <Image src="/img/logo.png" alt="Mealer Logo" width="36" height="36" />
-                <div className="fs-4 ms-2 mb-0">Mealer</div>
-            </Navbar.Brand>
+            <Link href="/" passHref legacyBehavior>
+                <Navbar.Brand className="py-0 d-flex align-items-center">
+                    <Image src="/img/logo.png" alt="Mealer Logo" width="36" height="36" />
+                    <div className="fs-4 ms-2 mb-0">Mealer</div>
+                </Navbar.Brand>
+            </Link>
 
             <Navbar.Toggle onClick={() => setOffcanvas(true)}/>
 
