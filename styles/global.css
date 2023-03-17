@@ -4,19 +4,19 @@
     --light-blue: #e5edfd;
 }
 
-html, body {
+html, body, #__next {
     height: 100%;
 }
 
 #__next {
-    min-height: 100%;
     display: flex;
     flex-direction: column;
 }
 
 main {
     flex-grow: 1;
-    padding: 1rem;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 h1 {

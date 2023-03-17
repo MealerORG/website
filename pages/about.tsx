@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { Row, Col } from "react-bootstrap";
+import Section from "../components/section";
 
 export default function About() {
-    return <>
+    return <Section>
         <Row>
             <Col sm={6}>
                 <h1>About Us</h1>
@@ -29,5 +30,5 @@ export default function About() {
                 </div>
             </Col>
         </Row>
-    </>;
+    </Section>;
 }

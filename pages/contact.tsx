@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Form, FloatingLabel, Button } from "react-bootstrap";
+import Section from "../components/section";
 
 export default function Contact() {
     const [submitted, setSubmitted] = useState(false);
@@ -21,7 +22,7 @@ export default function Contact() {
         }
     }
 
-    return <>
+    return <Section>
         <h1>Contact Us</h1>
 
         <p>To get in touch with our customer service representatives or learn more about our company mission, send us an email at <a href="mailto:info@mealerapp.com">info@mealerapp.com</a>.</p>
@@ -54,5 +55,5 @@ export default function Contact() {
                 <Button variant="primary" type="submit">Send</Button>
             </Form>
         }
-    </>;
+    </Section>;
 }

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import AppImage from "../components/appImage";
 import { Row, Col } from "react-bootstrap";
+import Section from "../components/section";
 
 export default function Download() {
     const platforms = [
@@ -8,7 +9,7 @@ export default function Download() {
         { name: "Android", href: "/download/android", image: "/app/download-android.svg", width: 170, height: 50, alt: "Google Play Store" }
     ];
 
-    return <>
+    return <Section>
         <Row className="mx-0">
             <Col sm="6" md="8" xxl="9" className="mt-3 d-flex flex-column justify-content-center">
                 <div className="text-center">
@@ -32,5 +33,5 @@ export default function Download() {
                 <AppImage app="login" />
             </Col>
         </Row>
-    </>;
+    </Section>;
 }
