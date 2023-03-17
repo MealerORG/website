@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Form, FloatingLabel, Button } from "react-bootstrap";
 
 export default function Contact() {
     const [submitted, setSubmitted] = useState(false);
@@ -30,7 +31,7 @@ export default function Contact() {
         { submitted ?
             <p><strong>Your message was submitted!</strong></p>
         :
-            <form name="contact" method="POST" action="/" onSubmit={submitForm} data-netlify="true" data-netlify-honeypot="bot-field">
+            <Form name="contact" method="POST" action="/" onSubmit={submitForm} data-netlify="true" data-netlify-honeypot="bot-field">
                 <input type="hidden" name="form-name" value="contact" />
 
                 <div hidden>
@@ -38,23 +39,20 @@ export default function Contact() {
                     <input id="bot-field" name="bot-field" type="text" />
                 </div>
 
-                <div>
-                    <label htmlFor="name" className="me-1">Name: </label>
-                    <input id="name" name="name" type="text" required />
-                </div>
+                <FloatingLabel controlId="name" label="Name">
+                    <Form.Control type="text" name="name" placeholder="Name" required />
+                </FloatingLabel>
 
-                <div className="my-2">
-                    <label htmlFor="email" className="me-1">Email: </label>
-                    <input id="email" name="email" type="email" required />
-                </div>
+                <FloatingLabel controlId="email" label="Email" className="my-2">
+                    <Form.Control type="email" name="email" placeholder="Email" required />
+                </FloatingLabel>
 
-                <div>
-                    <label htmlFor="message" className="d-block">Message: </label>
-                    <textarea className="w-100 mt-1" rows={10} name="message" required />
-                </div>
+                <FloatingLabel controlId="message" label="Message" className="mt-1 mb-3">
+                    <Form.Control as="textarea" name="message" placeholder="Message" required style={{ height: "200px" }} />
+                </FloatingLabel>
 
-                <button className="btn btn-primary" type="submit">Send</button>
-            </form>
+                <Button variant="primary" type="submit">Send</Button>
+            </Form>
         }
     </>;
 }
