@@ -7,7 +7,7 @@ export default function Section(props: any) {
 
     return <>
         <div className={`p-3 ${props.className ?? ""}`}
-            style={{ backgroundColor: backgrounds[props.background] ?? "white"}}
+            style={{ backgroundColor: backgrounds[props.background] ?? "white", height: props.height ?? "auto" }}
         >
             {props.children}
         </div>

@@ -23,7 +23,7 @@ export default function AppImage(props: any) {
     };
 
     return <>
-        <div className="position-relative" style={{ aspectRatio: `${frame.width} / ${frame.height}`, ...props.style }}>
+        <div className={`position-relative ${props.className}`} style={{ aspectRatio: `${frame.width} / ${frame.height}`, ...props.style }}>
             <Image className="position-absolute" src={frame.src} alt={frame.alt} fill style={{ objectFit: "contain", zIndex: "1" }} priority={true} />
             <div className="position-absolute" style={{...appInset , aspectRatio: `${app.width} / ${app.height}` }}>
                 <Image className="position-absolute" src={app.src} alt={app.alt} fill style={{ objectFit: "contain" }} />
