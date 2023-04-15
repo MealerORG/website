@@ -9,9 +9,9 @@ export default function Home() {
             <Col sm="6" md="8" xxl="9" className="mt-3 d-flex flex-column justify-content-center">
                 <div className="text-center">
                     <h1>Mealer</h1>
-                    <p>Plan your meals</p>
                     <p>Save money</p>
-                    <p>Help the environment</p>
+                    <p>Eat sustainably</p>
+                    <p>Reduce waste with meal planning </p>
                 </div>
             </Col>
             
@@ -21,11 +21,12 @@ export default function Home() {
         </Row>
 
         <Section background="lightBlue">
-            some stuff
+           <br></br>
+          <h1><center>Recent Updates!</center> </h1>
+          <h3><center>Version 1.0 (M)/(D)/(Y)</center> </h3>
+         <p><center>feature</center></p>
         </Section>
+        
 
-        <Section background="medBlue">
-            other stuff
-        </Section>
     </>;
 }
