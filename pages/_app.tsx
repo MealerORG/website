@@ -3,7 +3,6 @@ import Head from "next/head";
 import { Inter } from "next/font/google";
 import Header from "../components/header";
 import Footer from "../components/footer";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/global.css";
 
@@ -21,8 +20,8 @@ export default function App({ Component, pageProps }: AppProps) {
 
         <main className={inter.className}>
             <Component {...pageProps} />
-        </main>
 
-        <Footer className={inter.className} />
+            <Footer />
+        </main>
     </>;
 }

@@ -15,7 +15,23 @@ html, body, #__next {
 
 main {
     flex-grow: 1;
-    padding: 1rem;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
 }
 
 /* NAV BAR */
